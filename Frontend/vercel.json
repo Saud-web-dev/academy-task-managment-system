@@ -6,6 +6,10 @@
       "dest": "https://academy-task-managment-system.vercel.app/api/$1"
     },
     {
+      "src": "/sw.js",
+      "dest": "/sw.js"
+    },
+    {
       "src": "/assets/(.*)",
       "dest": "/assets/$1"
     },
