@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import { Outlet, NavLink, useNavigate } from "react-router-dom";
 import {
   LayoutDashboard,
@@ -335,7 +335,13 @@ const Layout = () => {
         {/* WORKSPACE CONTENT */}
         <main className="p-3 sm:p-4 bg-[#f5f0eb] flex-grow min-h-[calc(100vh-60px)] overflow-y-auto custom-scrollbar">
           <div className="max-w-7xl mx-auto">
-            <Outlet />
+            <Suspense fallback={
+              <div className="flex items-center justify-center min-h-[40vh]">
+                <div className="w-10 h-10 border-4 border-[#d4c8bc] border-t-[#8b7355] rounded-full animate-spin" />
+              </div>
+            }>
+              <Outlet />
+            </Suspense>
           </div>
         </main>
 

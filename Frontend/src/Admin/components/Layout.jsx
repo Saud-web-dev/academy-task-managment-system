@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useMemo } from 'react';
+import React, { useState, useEffect, useRef, useMemo, Suspense } from 'react';
 import { Outlet, NavLink, useNavigate } from 'react-router-dom';
 import api, { syncUserFromDB } from '../../service/api.js';
 import {
@@ -296,7 +296,13 @@ const Layout = () => {
         </header>
 
         <main className="p-4 sm:p-6 bg-[var(--bg-primary)] flex-grow min-h-[calc(100vh-56px)] lg:min-h-screen overflow-y-auto custom-scrollbar">
-          <Outlet />
+          <Suspense fallback={
+            <div className="flex items-center justify-center min-h-[40vh]">
+              <div className="w-10 h-10 border-4 border-[var(--border-color)] border-t-[var(--accent-primary)] rounded-full animate-spin" />
+            </div>
+          }>
+            <Outlet />
+          </Suspense>
         </main>
       </div>
 

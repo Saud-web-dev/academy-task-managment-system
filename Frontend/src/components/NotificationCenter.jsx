@@ -15,7 +15,6 @@ import {
 import api from '../service/api';
 import toast from 'react-hot-toast';
 import {
-  playNotificationWithEffects,
   getNotificationPreferences,
   setNotificationPreferences,
   testNotificationEffects,
@@ -25,7 +24,7 @@ import {
 // NOTIFICATION CENTER - WhatsApp Style
 // ============================================
 
-const NotificationCenter = ({ isOpen, onClose }) => {
+const NotificationCenter = ({ isOpen, onClose, onUnreadChange }) => {
   const [notifications, setNotifications] = useState([]);
   const [unreadCount, setUnreadCount] = useState(0);
   const [loading, setLoading] = useState(false);
@@ -52,12 +51,8 @@ const NotificationCenter = ({ isOpen, onClose }) => {
   // FETCH NOTIFICATIONS
   // ============================================
   useEffect(() => {
-    if (isOpen) {
-      fetchNotifications();
-      // Poll for new notifications every 5 seconds
-      const interval = setInterval(fetchNotifications, 5000);
-      return () => clearInterval(interval);
-    }
+    if (!isOpen) return;
+    fetchNotifications();
   }, [isOpen, selectedFilter]);
 
   const fetchNotifications = async () => {
@@ -68,20 +63,9 @@ const NotificationCenter = ({ isOpen, onClose }) => {
       
       if (res.data.success) {
         setNotifications(res.data.data || []);
-        setUnreadCount(res.data.unreadCount || 0);
-        
-        // ✅ Play sound/vibration for new notifications
-        if (res.data.data && res.data.data.length > 0) {
-          const hasNew = res.data.data.some(n => !n.read);
-          if (hasNew) {
-            await playNotificationWithEffects({
-              soundType: 'notification',
-              vibrationPattern: 'medium',
-              soundEnabled,
-              vibrationEnabled,
-            });
-          }
-        }
+        const nextUnread = res.data.unreadCount || 0;
+        setUnreadCount(nextUnread);
+        onUnreadChange?.(nextUnread);
       }
     } catch (error) {
       console.error('Error fetching notifications:', error);
@@ -99,7 +83,9 @@ const NotificationCenter = ({ isOpen, onClose }) => {
       setNotifications(notifications.map(n => 
         n._id === notificationId ? { ...n, read: true } : n
       ));
-      setUnreadCount(Math.max(0, unreadCount - 1));
+      const nextUnread = Math.max(0, unreadCount - 1);
+      setUnreadCount(nextUnread);
+      onUnreadChange?.(nextUnread);
     } catch (error) {
       toast.error('Failed to mark as read');
     }
@@ -113,6 +99,7 @@ const NotificationCenter = ({ isOpen, onClose }) => {
       await api.put('/notifications/mark-all-read');
       setNotifications(notifications.map(n => ({ ...n, read: true })));
       setUnreadCount(0);
+      onUnreadChange?.(0);
       toast.success('All notifications marked as read');
     } catch (error) {
       toast.error('Failed to mark all as read');

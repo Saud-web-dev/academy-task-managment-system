@@ -1,80 +1,88 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { Bell } from 'lucide-react';
 import api from '../service/api';
 import NotificationCenter from './NotificationCenter';
 
-// ============================================
-// NOTIFICATION BADGE - Shows unread count
-// ============================================
+const MIN_FETCH_INTERVAL_MS = 60_000;
+let lastFetchAt = 0;
+let inFlightRequest = null;
+let cachedUnreadCount = 0;
 
 const NotificationBadge = () => {
-  const [unreadCount, setUnreadCount] = useState(0);
+  const [unreadCount, setUnreadCount] = useState(() => cachedUnreadCount);
   const [isOpen, setIsOpen] = useState(false);
   const [hasNewNotification, setHasNewNotification] = useState(false);
+  const unreadCountRef = useRef(0);
 
-  // ============================================
-  // FETCH UNREAD COUNT
-  // ============================================
+  const fetchUnreadCount = useCallback(async ({ force = false } = {}) => {
+    if (!localStorage.getItem('token')) return;
+    if (document.hidden && !force) return;
+
+    const now = Date.now();
+    if (now - lastFetchAt < MIN_FETCH_INTERVAL_MS) {
+      unreadCountRef.current = cachedUnreadCount;
+      return;
+    }
+    if (inFlightRequest) return inFlightRequest;
+
+    lastFetchAt = now;
+    inFlightRequest = api.get('/notifications/unread-count')
+      .then((res) => {
+        if (res.data.success) {
+          const newCount = res.data.unreadCount;
+          cachedUnreadCount = newCount;
+          if (newCount > unreadCountRef.current && unreadCountRef.current > 0) {
+            setHasNewNotification(true);
+            setTimeout(() => setHasNewNotification(false), 2000);
+          }
+          unreadCountRef.current = newCount;
+          setUnreadCount(newCount);
+          document.title = newCount > 0 ? `(${newCount}) Task Management` : 'Task Management';
+        }
+      })
+      .catch((error) => {
+        console.error('Error fetching unread count:', error);
+      })
+      .finally(() => {
+        inFlightRequest = null;
+      });
+
+    return inFlightRequest;
+  }, []);
+
   useEffect(() => {
     fetchUnreadCount();
-    
-    // Poll for new notifications every 10 seconds
-    const interval = setInterval(fetchUnreadCount, 10000);
-    
-    // Listen for service worker messages
+
+    const onVisible = () => {
+      if (document.visibilityState === 'visible') {
+        fetchUnreadCount();
+      }
+    };
+    const onFocus = () => fetchUnreadCount();
+
+    document.addEventListener('visibilitychange', onVisible);
+    window.addEventListener('focus', onFocus);
+
+    const handleServiceWorkerMessage = (event) => {
+      if (event.data?.type === 'NOTIFICATION_CLICKED') {
+        fetchUnreadCount({ force: true });
+      }
+    };
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.addEventListener('message', handleServiceWorkerMessage);
     }
 
     return () => {
-      clearInterval(interval);
+      document.removeEventListener('visibilitychange', onVisible);
+      window.removeEventListener('focus', onFocus);
       if ('serviceWorker' in navigator) {
         navigator.serviceWorker.removeEventListener('message', handleServiceWorkerMessage);
       }
     };
-  }, []);
-
-  const fetchUnreadCount = async () => {
-    try {
-      const res = await api.get('/notifications/unread-count');
-      if (res.data.success) {
-        const newCount = res.data.unreadCount;
-        
-        // ✅ Show animation if count increased
-        if (newCount > unreadCount && unreadCount > 0) {
-          setHasNewNotification(true);
-          setTimeout(() => setHasNewNotification(false), 2000);
-        }
-        
-        setUnreadCount(newCount);
-        
-        // ✅ Update badge in browser tab
-        if (newCount > 0) {
-          document.title = `(${newCount}) Task Management`;
-        } else {
-          document.title = 'Task Management';
-        }
-      }
-    } catch (error) {
-      console.error('Error fetching unread count:', error);
-    }
-  };
-
-  // ============================================
-  // HANDLE SERVICE WORKER MESSAGE
-  // ============================================
-  const handleServiceWorkerMessage = (event) => {
-    if (event.data.type === 'NOTIFICATION_CLICKED') {
-      // Refresh notifications when clicked
-      fetchUnreadCount();
-    }
-  };
+  }, [fetchUnreadCount]);
 
   return (
     <>
-      {/* ============================================
-          NOTIFICATION BELL BUTTON
-          ============================================ */}
       <button
         onClick={() => setIsOpen(true)}
         className={`relative p-2 rounded-lg transition ${
@@ -86,7 +94,6 @@ const NotificationBadge = () => {
       >
         <Bell className={`w-5 h-5 ${hasNewNotification ? 'animate-bounce' : ''}`} />
 
-        {/* ✅ UNREAD BADGE */}
         {unreadCount > 0 && (
           <span
             className={`absolute -top-1 -right-1 bg-[var(--danger)] text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center animate-pulse ${
@@ -98,10 +105,16 @@ const NotificationBadge = () => {
         )}
       </button>
 
-      {/* ============================================
-          NOTIFICATION CENTER PANEL
-          ============================================ */}
-      <NotificationCenter isOpen={isOpen} onClose={() => setIsOpen(false)} />
+      <NotificationCenter
+        isOpen={isOpen}
+        onClose={() => setIsOpen(false)}
+        onUnreadChange={(count) => {
+          cachedUnreadCount = count;
+          unreadCountRef.current = count;
+          setUnreadCount(count);
+          document.title = count > 0 ? `(${count}) Task Management` : 'Task Management';
+        }}
+      />
     </>
   );
 };

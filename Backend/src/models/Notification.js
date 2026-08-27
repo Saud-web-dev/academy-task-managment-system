@@ -106,6 +106,7 @@ const notificationSchema = new mongoose.Schema({
   dismissed: {
     type: Boolean,
     default: false,
+    index: true,
   },
 
   dismissedAt: {
@@ -286,5 +287,7 @@ notificationSchema.statics.cleanup = async function(daysOld = 90) {
     read: true,
   });
 };
+
+notificationSchema.index({ userId: 1, read: 1, dismissed: 1 });
 
 export default mongoose.model("Notification", notificationSchema);
