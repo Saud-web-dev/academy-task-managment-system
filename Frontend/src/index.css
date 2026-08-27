@@ -1,0 +1,1381 @@
+@import "tailwindcss";
+
+  /* ============================================
+    BASE THEME — defaults to VS Code Dark+
+    ============================================ */
+  :root {
+    --bg-primary: #1E1E1E;
+    --bg-secondary: #252526;
+    --bg-card: #252526;
+    --bg-hover: rgba(255, 255, 255, 0.05);
+    --bg-input: #3C3C3C;
+    --bg-navbar: #1E1E1E;
+
+    --text-primary: #D4D4D4;
+    --text-secondary: #9CDCFE;
+    --text-muted: #6A9955;
+    --text-inverse: #1E1E1E;
+
+    --border-color: #3C3C3C;
+    --border-hover: #007ACC;
+
+    --accent-primary: #007ACC;
+    --accent-hover: #1F9CF0;
+    --accent-light: #264F78;
+
+    --success: #4EC9B0;
+    --warning: #CE9178;
+    --danger: #F44747;
+  }
+
+  /* ============================================
+    THEME 1: WINDOWS 11 LIGHT (Fluent Design)
+    ============================================ */
+  [data-theme="win-light"] {
+    --bg-primary: #F3F3F3;
+    --bg-secondary: #FAFAFA;
+    --bg-card: #FFFFFF;
+    --bg-hover: rgba(0, 120, 212, 0.08);
+    --bg-input: #FFFFFF;
+    --bg-navbar: #F3F3F3;
+
+    --text-primary: #1B1B1B;
+    --text-secondary: #5A5A5A;
+    --text-muted: #8A8A8A;
+    --text-inverse: #FFFFFF;
+
+    --border-color: #E5E5E5;
+    --border-hover: #0078D4;
+
+    --accent-primary: #0078D4;
+    --accent-hover: #106EBE;
+    --accent-light: #C7E0F4;
+
+    --success: #107C10;
+    --warning: #9D5D00;
+    --danger: #C42B1C;
+  }
+
+  /* ============================================
+    THEME 2: WINDOWS 11 DARK (Fluent Design)
+    ============================================ */
+  [data-theme="win-dark"] {
+    --bg-primary: #202020;
+    --bg-secondary: #2C2C2C;
+    --bg-card: #2C2C2C;
+    --bg-hover: rgba(255, 255, 255, 0.06);
+    --bg-input: #3B3B3B;
+    --bg-navbar: #202020;
+
+    --text-primary: #FFFFFF;
+    --text-secondary: #C5C5C5;
+    --text-muted: #8A8A8A;
+    --text-inverse: #202020;
+
+    --border-color: #3B3B3B;
+    --border-hover: #60CDFF;
+
+    --accent-primary: #60CDFF;
+    --accent-hover: #99DFFF;
+    --accent-light: #0078D4;
+
+    --success: #6CCB5F;
+    --warning: #FCE100;
+    --danger: #FF99A4;
+  }
+
+  /* ============================================
+    THEME 3: VS CODE DARK+
+    ============================================ */
+  [data-theme="vscode-dark"] {
+    --bg-primary: #1E1E1E;
+    --bg-secondary: #252526;
+    --bg-card: #252526;
+    --bg-hover: rgba(255, 255, 255, 0.05);
+    --bg-input: #3C3C3C;
+    --bg-navbar: #1E1E1E;
+
+    --text-primary: #D4D4D4;
+    --text-secondary: #9CDCFE;
+    --text-muted: #6A9955;
+    --text-inverse: #1E1E1E;
+
+    --border-color: #3C3C3C;
+    --border-hover: #007ACC;
+
+    --accent-primary: #007ACC;
+    --accent-hover: #1F9CF0;
+    --accent-light: #264F78;
+
+    --success: #4EC9B0;
+    --warning: #CE9178;
+    --danger: #F44747;
+  }
+
+  /* ============================================
+    THEME 4: GITHUB DARK
+    ============================================ */
+  [data-theme="github-dark"] {
+    --bg-primary: #0D1117;
+    --bg-secondary: #161B22;
+    --bg-card: #161B22;
+    --bg-hover: rgba(177, 186, 196, 0.08);
+    --bg-input: #21262D;
+    --bg-navbar: #0D1117;
+
+    --text-primary: #E6EDF3;
+    --text-secondary: #8B949E;
+    --text-muted: #6E7681;
+    --text-inverse: #0D1117;
+
+    --border-color: #30363D;
+    --border-hover: #58A6FF;
+
+    --accent-primary: #58A6FF;
+    --accent-hover: #79C0FF;
+    --accent-light: #1F6FEB;
+
+    --success: #3FB950;
+    --warning: #D29922;
+    --danger: #F85149;
+  }
+
+  /* ============================================
+    THEME 5: DRACULA
+    ============================================ */
+  [data-theme="dracula"] {
+    --bg-primary: #282A36;
+    --bg-secondary: #343746;
+    --bg-card: #343746;
+    --bg-hover: rgba(189, 147, 249, 0.08);
+    --bg-input: #44475A;
+    --bg-navbar: #282A36;
+
+    --text-primary: #F8F8F2;
+    --text-secondary: #BD93F9;
+    --text-muted: #6272A4;
+    --text-inverse: #282A36;
+
+    --border-color: #44475A;
+    --border-hover: #BD93F9;
+
+    --accent-primary: #BD93F9;
+    --accent-hover: #FF79C6;
+    --accent-light: #6272A4;
+
+    --success: #50FA7B;
+    --warning: #F1FA8C;
+    --danger: #FF5555;
+  }
+
+  /* ============================================
+    THEME 6: NORD
+    ============================================ */
+  [data-theme="nord"] {
+    --bg-primary: #2E3440;
+    --bg-secondary: #3B4252;
+    --bg-card: #3B4252;
+    --bg-hover: rgba(136, 192, 208, 0.08);
+    --bg-input: #434C5E;
+    --bg-navbar: #2E3440;
+
+    --text-primary: #ECEFF4;
+    --text-secondary: #D8DEE9;
+    --text-muted: #81A1C1;
+    --text-inverse: #2E3440;
+
+    --border-color: #434C5E;
+    --border-hover: #88C0D0;
+
+    --accent-primary: #88C0D0;
+    --accent-hover: #8FBCBB;
+    --accent-light: #5E81AC;
+
+    --success: #A3BE8C;
+    --warning: #EBCB8B;
+    --danger: #BF616A;
+  }
+
+  /* ============================================
+    THEME 7: ONE DARK PRO
+    ============================================ */
+  [data-theme="one-dark"] {
+    --bg-primary: #282C34;
+    --bg-secondary: #21252B;
+    --bg-card: #2C313A;
+    --bg-hover: rgba(97, 175, 239, 0.08);
+    --bg-input: #1D2025;
+    --bg-navbar: #21252B;
+
+    --text-primary: #ABB2BF;
+    --text-secondary: #98C379;
+    --text-muted: #5C6370;
+    --text-inverse: #282C34;
+
+    --border-color: #181A1F;
+    --border-hover: #61AFEF;
+
+    --accent-primary: #61AFEF;
+    --accent-hover: #56B6C2;
+    --accent-light: #3E4451;
+
+    --success: #98C379;
+    --warning: #E5C07B;
+    --danger: #E06C75;
+  }
+
+  /* ============================================
+    THEME 8: MONOKAI PRO
+    ============================================ */
+  [data-theme="monokai"] {
+    --bg-primary: #2D2A2E;
+    --bg-secondary: #221F22;
+    --bg-card: #363338;
+    --bg-hover: rgba(166, 226, 46, 0.08);
+    --bg-input: #403E41;
+    --bg-navbar: #221F22;
+
+    --text-primary: #FCFCFA;
+    --text-secondary: #C1C0C0;
+    --text-muted: #939293;
+    --text-inverse: #2D2A2E;
+
+    --border-color: #403E41;
+    --border-hover: #A9DC76;
+
+    --accent-primary: #A9DC76;
+    --accent-hover: #FFD866;
+    --accent-light: #727072;
+
+    --success: #A9DC76;
+    --warning: #FFD866;
+    --danger: #FF6188;
+  }
+
+  /* ============================================
+    THEME 9: SOLARIZED DARK
+    ============================================ */
+  [data-theme="solarized-dark"] {
+    --bg-primary: #002B36;
+    --bg-secondary: #073642;
+    --bg-card: #073642;
+    --bg-hover: rgba(38, 139, 210, 0.08);
+    --bg-input: #0A4552;
+    --bg-navbar: #002B36;
+
+    --text-primary: #EEE8D5;
+    --text-secondary: #93A1A1;
+    --text-muted: #657B83;
+    --text-inverse: #002B36;
+
+    --border-color: #0A4552;
+    --border-hover: #268BD2;
+
+    --accent-primary: #268BD2;
+    --accent-hover: #2AA198;
+    --accent-light: #073642;
+
+    --success: #859900;
+    --warning: #B58900;
+    --danger: #DC322F;
+  }
+
+  /* ============================================
+    THEME 10: SOLARIZED LIGHT
+    ============================================ */
+  [data-theme="solarized-light"] {
+    --bg-primary: #FDF6E3;
+    --bg-secondary: #EEE8D5;
+    --bg-card: #FFFFFF;
+    --bg-hover: rgba(38, 139, 210, 0.08);
+    --bg-input: #FFFFFF;
+    --bg-navbar: #FDF6E3;
+
+    --text-primary: #073642;
+    --text-secondary: #586E75;
+    --text-muted: #93A1A1;
+    --text-inverse: #FDF6E3;
+
+    --border-color: #EEE8D5;
+    --border-hover: #268BD2;
+
+    --accent-primary: #268BD2;
+    --accent-hover: #2AA198;
+    --accent-light: #EEE8D5;
+
+    --success: #859900;
+    --warning: #B58900;
+    --danger: #DC322F;
+  }
+
+  /* ============================================
+    GLOBAL STYLES
+    ============================================ */
+  body {
+    background-color: var(--bg-primary) !important;
+    color: var(--text-primary) !important;
+    transition: background-color 0.4s ease, color 0.4s ease;
+  }
+
+  * {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  }
+
+  /* ============================================
+    GLOBAL UI STYLES — MILLION-DOLLAR PROFESSIONAL UPGRADE
+    ============================================ */
+  :root {
+    --ui-radius-sm: 8px;
+    --ui-radius-md: 12px;
+    --ui-radius-lg: 16px;
+    --ui-radius-pill: 999px;
+
+    --ui-border-width: 1px;
+    --ui-border-color: var(--border-color);
+
+    --ui-shadow-card: 0 1px 3px rgba(0,0,0,0.12), 0 4px 12px rgba(0,0,0,0.08);
+    --ui-shadow-hover: 0 4px 10px rgba(0,0,0,0.15), 0 8px 24px rgba(0,0,0,0.10);
+    --ui-shadow-btn: 0 1px 2px rgba(0,0,0,0.15);
+
+    --ui-backdrop-blur: 0px;
+
+    --ui-space-unit: 4px;
+    --ui-card-padding: 20px;
+
+    --ui-sidebar-width: 260px;
+    --ui-sidebar-item-radius: var(--ui-radius-pill);
+    --ui-sidebar-inset: 0px;
+    --ui-sidebar-radius: 0px;
+
+    --ui-btn-radius: var(--ui-radius-md);
+    --ui-btn-padding-y: 10px;
+    --ui-btn-padding-x: 20px;
+    --ui-btn-weight: 600;
+  }
+
+  /* ============================================
+    1. MATERIAL ELEVATED — Premium 2026 Upgrade
+    Inspired by: Material You 3, Google Pixel UI
+    ============================================ */
+  [data-ui-style="material"] {
+    --ui-radius-sm: 10px;
+    --ui-radius-md: 16px;
+    --ui-radius-lg: 24px;
+    --ui-border-width: 0px;
+
+    /* Multi-layer elevation with colored ambient shadows */
+    --ui-shadow-card: 
+      0 1px 2px rgba(0,0,0,0.08),
+      0 2px 8px rgba(0,0,0,0.06),
+      0 4px 16px rgba(0,0,0,0.04),
+      0 0 0 1px rgba(255,255,255,0.04) inset;
+
+    --ui-shadow-hover: 
+      0 2px 4px rgba(0,0,0,0.10),
+      0 4px 12px rgba(0,0,0,0.08),
+      0 8px 24px rgba(0,0,0,0.06),
+      0 12px 32px rgba(0,0,0,0.04),
+      0 0 0 1px rgba(255,255,255,0.06) inset;
+
+    --ui-shadow-btn: 
+      0 1px 3px rgba(0,0,0,0.12),
+      0 2px 6px rgba(0,0,0,0.08),
+      0 0 0 1px rgba(255,255,255,0.08) inset;
+
+    --ui-shadow-btn-hover:
+      0 2px 6px rgba(0,0,0,0.16),
+      0 4px 12px rgba(0,0,0,0.12),
+      0 0 0 1px rgba(255,255,255,0.10) inset;
+
+    --ui-shadow-btn-active:
+      0 0 2px rgba(0,0,0,0.12),
+      inset 0 2px 4px rgba(0,0,0,0.08);
+
+    --ui-backdrop-blur: 0px;
+    --ui-space-unit: 4px;
+    --ui-card-padding: 24px;
+
+    --ui-sidebar-width: 280px;
+    --ui-sidebar-item-radius: var(--ui-radius-pill);
+    --ui-sidebar-inset: 0px;
+    --ui-sidebar-radius: 0px;
+
+    /* Premium pill buttons with perfect proportions */
+    --ui-btn-radius: var(--ui-radius-pill);
+    --ui-btn-padding-y: 14px;
+    --ui-btn-padding-x: 28px;
+    --ui-btn-weight: 600;
+    --ui-btn-letter-spacing: 0.02em;
+    --ui-btn-font-size: 14px;
+
+    /* Material surface tints */
+    --ui-surface-tint: var(--accent-primary);
+    --ui-surface-tint-opacity: 0.05;
+  }
+
+  /* Material buttons — Premium tactile feel */
+  [data-ui-style="material"] .ui-btn {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--ui-btn-radius);
+    padding: var(--ui-btn-padding-y) var(--ui-btn-padding-x);
+    font-weight: var(--ui-btn-weight);
+    font-size: var(--ui-btn-font-size);
+    letter-spacing: var(--ui-btn-letter-spacing);
+    box-shadow: var(--ui-shadow-btn);
+    border: none;
+    transition: 
+      box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+      transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+      background-color 0.2s ease;
+    cursor: pointer;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  [data-ui-style="material"] .ui-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0) 100%);
+    border-radius: inherit;
+    pointer-events: none;
+  }
+
+  [data-ui-style="material"] .ui-btn::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(255,255,255,0.2) 0%, transparent 70%);
+    opacity: 0;
+    transform: scale(0.5);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    border-radius: inherit;
+    pointer-events: none;
+  }
+
+  [data-ui-style="material"] .ui-btn:hover {
+    box-shadow: var(--ui-shadow-btn-hover);
+    transform: translateY(-1px);
+  }
+
+  [data-ui-style="material"] .ui-btn:hover::after {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  [data-ui-style="material"] .ui-btn:active {
+    box-shadow: var(--ui-shadow-btn-active);
+    transform: translateY(0) scale(0.98);
+    transition-duration: 0.1s;
+  }
+
+  [data-ui-style="material"] .ui-btn-primary {
+    background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-hover) 100%);
+    color: var(--text-inverse);
+  }
+
+  [data-ui-style="material"] .ui-btn-primary:hover {
+    background: linear-gradient(135deg, var(--accent-hover) 0%, var(--accent-primary) 100%);
+  }
+
+  /* Material cards — Layered elevation with surface tint */
+  [data-ui-style="material"] .ui-card {
+    background: linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--bg-card) 95%, var(--ui-surface-tint)) 0%,
+      var(--bg-card) 100%
+    );
+    border: none;
+    border-radius: var(--ui-radius-lg);
+    box-shadow: var(--ui-shadow-card);
+    padding: var(--ui-card-padding);
+    transition: 
+      box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+      transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+  }
+
+  [data-ui-style="material"] .ui-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+  }
+
+  [data-ui-style="material"] .ui-card:hover {
+    box-shadow: var(--ui-shadow-hover);
+    transform: translateY(-2px);
+  }
+
+  /* Material inputs — Floating label style */
+  [data-ui-style="material"] .ui-input {
+    background: var(--bg-input);
+    border: 2px solid transparent;
+    border-radius: var(--ui-radius-md);
+    padding: 16px 20px;
+    font-size: 15px;
+    transition: 
+      border-color 0.2s ease,
+      box-shadow 0.2s ease,
+      background-color 0.2s ease;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.08);
+  }
+
+  [data-ui-style="material"] .ui-input:focus {
+    border-color: var(--accent-primary);
+    box-shadow: 
+      inset 0 1px 3px rgba(0,0,0,0.08),
+      0 0 0 3px color-mix(in srgb, var(--accent-primary) 15%, transparent);
+    outline: none;
+  }
+
+  /* Material sidebar — Pill navigation */
+  [data-ui-style="material"] .ui-sidebar {
+    width: var(--ui-sidebar-width);
+    background: var(--bg-navbar);
+    border-right: none;
+    border-radius: var(--ui-sidebar-radius);
+    padding: 16px 12px;
+  }
+
+  [data-ui-style="material"] .ui-sidebar-item {
+    border-radius: var(--ui-sidebar-item-radius);
+    padding: 12px 20px;
+    margin: 4px 0;
+    transition: 
+      background-color 0.2s ease,
+      transform 0.15s ease,
+      box-shadow 0.2s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  [data-ui-style="material"] .ui-sidebar-item:hover {
+    background: var(--bg-hover);
+    transform: translateX(2px);
+  }
+
+  [data-ui-style="material"] .ui-sidebar-item.active {
+    background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-hover) 100%);
+    color: var(--text-inverse);
+    box-shadow: 0 2px 8px color-mix(in srgb, var(--accent-primary) 30%, transparent);
+  }
+
+  /* Material badges — Vibrant with subtle glow */
+  [data-ui-style="material"] .ui-badge {
+    border-radius: var(--ui-radius-pill);
+    padding: 6px 14px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.12);
+  }
+
+  /* ============================================
+    2. GLASS STUDIO — Liquid Glass 2.0 (2026)
+    Inspired by: Apple Liquid Glass, iOS 26, macOS Tahoe
+    ============================================ */
+  [data-ui-style="glass"] {
+    --ui-radius-sm: 14px;
+    --ui-radius-md: 20px;
+    --ui-radius-lg: 28px;
+    --ui-border-width: 1px;
+    --ui-border-color: rgba(255,255,255,0.12);
+
+    /* Multi-layer glass shadows with chromatic dispersion */
+    --ui-shadow-card: 
+      0 4px 24px rgba(0,0,0,0.15),
+      0 1px 3px rgba(0,0,0,0.10),
+      inset 0 1px 0 rgba(255,255,255,0.08),
+      inset 0 0 0 1px rgba(255,255,255,0.04);
+
+    --ui-shadow-hover: 
+      0 8px 40px rgba(0,0,0,0.20),
+      0 2px 8px rgba(0,0,0,0.12),
+      inset 0 1px 0 rgba(255,255,255,0.12),
+      inset 0 0 0 1px rgba(255,255,255,0.06);
+
+    --ui-shadow-btn: 
+      0 2px 12px rgba(0,0,0,0.15),
+      0 1px 3px rgba(0,0,0,0.10),
+      inset 0 1px 0 rgba(255,255,255,0.15),
+      inset 0 0 0 1px rgba(255,255,255,0.08);
+
+    --ui-shadow-btn-hover:
+      0 4px 20px rgba(0,0,0,0.20),
+      0 2px 6px rgba(0,0,0,0.12),
+      inset 0 1px 0 rgba(255,255,255,0.20),
+      inset 0 0 0 1px rgba(255,255,255,0.10);
+
+    --ui-shadow-btn-active:
+      0 1px 4px rgba(0,0,0,0.12),
+      inset 0 2px 4px rgba(0,0,0,0.10);
+
+    --ui-backdrop-blur: 24px;
+    --ui-space-unit: 5px;
+    --ui-card-padding: 28px;
+
+    --ui-sidebar-width: 270px;
+    --ui-sidebar-item-radius: var(--ui-radius-md);
+    --ui-sidebar-inset: 16px;
+    --ui-sidebar-radius: var(--ui-radius-lg);
+
+    --ui-btn-radius: var(--ui-radius-md);
+    --ui-btn-padding-y: 14px;
+    --ui-btn-padding-x: 26px;
+    --ui-btn-weight: 500;
+    --ui-btn-letter-spacing: 0.01em;
+    --ui-btn-font-size: 14px;
+
+    /* Glass refraction colors */
+    --ui-glass-highlight: rgba(255,255,255,0.15);
+    --ui-glass-rim: rgba(255,255,255,0.20);
+    --ui-glass-inner-glow: rgba(255,255,255,0.05);
+  }
+
+  /* Glass buttons — Liquid glass with refraction */
+  [data-ui-style="glass"] .ui-btn {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--ui-btn-radius);
+    padding: var(--ui-btn-padding-y) var(--ui-btn-padding-x);
+    font-weight: var(--ui-btn-weight);
+    font-size: var(--ui-btn-font-size);
+    letter-spacing: var(--ui-btn-letter-spacing);
+    box-shadow: var(--ui-shadow-btn);
+    border: 1px solid var(--ui-border-color);
+    background: linear-gradient(
+      135deg,
+      rgba(255,255,255,0.12) 0%,
+      rgba(255,255,255,0.04) 50%,
+      rgba(255,255,255,0.01) 100%
+    );
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    color: var(--text-primary);
+    transition: 
+      box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+      transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+      background 0.3s ease,
+      border-color 0.3s ease;
+    cursor: pointer;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Top highlight rim light */
+  [data-ui-style="glass"] .ui-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(
+      180deg,
+      var(--ui-glass-rim) 0%,
+      transparent 40%,
+      transparent 60%,
+      rgba(255,255,255,0.03) 100%
+    );
+    -webkit-mask: 
+      linear-gradient(#fff 0 0) content-box, 
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  /* Inner glow reflection */
+  [data-ui-style="glass"] .ui-btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 10%;
+    right: 10%;
+    height: 40%;
+    background: linear-gradient(
+      180deg,
+      var(--ui-glass-highlight) 0%,
+      transparent 100%
+    );
+    border-radius: 50% 50% 0 0;
+    filter: blur(8px);
+    opacity: 0.6;
+    pointer-events: none;
+  }
+
+  [data-ui-style="glass"] .ui-btn:hover {
+    box-shadow: var(--ui-shadow-btn-hover);
+    transform: translateY(-2px);
+    background: linear-gradient(
+      135deg,
+      rgba(255,255,255,0.18) 0%,
+      rgba(255,255,255,0.06) 50%,
+      rgba(255,255,255,0.02) 100%
+    );
+    border-color: rgba(255,255,255,0.20);
+  }
+
+  [data-ui-style="glass"] .ui-btn:hover::after {
+    opacity: 0.9;
+  }
+
+  [data-ui-style="glass"] .ui-btn:active {
+    box-shadow: var(--ui-shadow-btn-active);
+    transform: translateY(0) scale(0.97);
+    transition-duration: 0.1s;
+  }
+
+  [data-ui-style="glass"] .ui-btn-primary {
+    background: linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--accent-primary) 80%, white) 0%,
+      var(--accent-primary) 50%,
+      color-mix(in srgb, var(--accent-primary) 70%, black) 100%
+    );
+    color: var(--text-inverse);
+    border: 1px solid color-mix(in srgb, var(--accent-primary) 50%, transparent);
+    text-shadow: 0 1px 2px rgba(0,0,0,0.20);
+  }
+
+  [data-ui-style="glass"] .ui-btn-primary:hover {
+    background: linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--accent-hover) 80%, white) 0%,
+      var(--accent-hover) 50%,
+      color-mix(in srgb, var(--accent-hover) 70%, black) 100%
+    );
+  }
+
+  /* Glass cards — Frosted panels with depth */
+  [data-ui-style="glass"] .ui-card {
+    background: linear-gradient(
+      160deg,
+      rgba(255,255,255,0.10) 0%,
+      rgba(255,255,255,0.04) 40%,
+      rgba(255,255,255,0.01) 100%
+    );
+    border: 1px solid var(--ui-border-color);
+    border-radius: var(--ui-radius-lg);
+    box-shadow: var(--ui-shadow-card);
+    padding: var(--ui-card-padding);
+    backdrop-filter: blur(var(--ui-backdrop-blur)) saturate(160%);
+    -webkit-backdrop-filter: blur(var(--ui-backdrop-blur)) saturate(160%);
+    transition: 
+      box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+      transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+      border-color 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Glass card rim light */
+  [data-ui-style="glass"] .ui-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(
+      180deg,
+      rgba(255,255,255,0.20) 0%,
+      transparent 30%,
+      transparent 70%,
+      rgba(255,255,255,0.05) 100%
+    );
+    -webkit-mask: 
+      linear-gradient(#fff 0 0) content-box, 
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  /* Glass card inner reflection */
+  [data-ui-style="glass"] .ui-card::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(
+      ellipse at 30% 20%,
+      rgba(255,255,255,0.08) 0%,
+      transparent 50%
+    );
+    pointer-events: none;
+  }
+
+  [data-ui-style="glass"] .ui-card:hover {
+    box-shadow: var(--ui-shadow-hover);
+    transform: translateY(-3px) scale(1.005);
+    border-color: rgba(255,255,255,0.18);
+  }
+
+  /* Glass inputs — Frosted fields */
+  [data-ui-style="glass"] .ui-input {
+    background: linear-gradient(
+      135deg,
+      rgba(255,255,255,0.08) 0%,
+      rgba(255,255,255,0.03) 100%
+    );
+    border: 1px solid var(--ui-border-color);
+    border-radius: var(--ui-radius-md);
+    padding: 16px 20px;
+    font-size: 15px;
+    backdrop-filter: blur(16px) saturate(140%);
+    -webkit-backdrop-filter: blur(16px) saturate(140%);
+    transition: 
+      border-color 0.3s ease,
+      box-shadow 0.3s ease,
+      background 0.3s ease;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.05);
+    color: var(--text-primary);
+  }
+
+  [data-ui-style="glass"] .ui-input:focus {
+    border-color: var(--accent-primary);
+    background: linear-gradient(
+      135deg,
+      rgba(255,255,255,0.12) 0%,
+      rgba(255,255,255,0.05) 100%
+    );
+    box-shadow: 
+      inset 0 1px 2px rgba(0,0,0,0.05),
+      0 0 0 3px color-mix(in srgb, var(--accent-primary) 12%, transparent);
+    outline: none;
+  }
+
+  /* Glass sidebar — Floating frosted panel */
+  [data-ui-style="glass"] .ui-sidebar {
+    width: var(--ui-sidebar-width);
+    margin: var(--ui-sidebar-inset);
+    background: linear-gradient(
+      180deg,
+      rgba(255,255,255,0.08) 0%,
+      rgba(255,255,255,0.03) 100%
+    );
+    border: 1px solid var(--ui-border-color);
+    border-radius: var(--ui-sidebar-radius);
+    backdrop-filter: blur(var(--ui-backdrop-blur)) saturate(160%);
+    -webkit-backdrop-filter: blur(var(--ui-backdrop-blur)) saturate(160%);
+    padding: 20px 16px;
+    box-shadow: var(--ui-shadow-card);
+  }
+
+  [data-ui-style="glass"] .ui-sidebar-item {
+    border-radius: var(--ui-sidebar-item-radius);
+    padding: 12px 18px;
+    margin: 6px 0;
+    transition: 
+      background-color 0.3s ease,
+      transform 0.2s ease,
+      box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  [data-ui-style="glass"] .ui-sidebar-item:hover {
+    background: rgba(255,255,255,0.06);
+    transform: translateX(3px);
+  }
+
+  [data-ui-style="glass"] .ui-sidebar-item.active {
+    background: linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--accent-primary) 25%, transparent) 0%,
+      color-mix(in srgb, var(--accent-primary) 15%, transparent) 100%
+    );
+    border: 1px solid color-mix(in srgb, var(--accent-primary) 30%, transparent);
+    box-shadow: 
+      0 2px 12px color-mix(in srgb, var(--accent-primary) 20%, transparent),
+      inset 0 1px 0 rgba(255,255,255,0.10);
+  }
+
+  /* Glass badges — Glowing pills */
+  [data-ui-style="glass"] .ui-badge {
+    border-radius: var(--ui-radius-pill);
+    padding: 6px 14px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    background: linear-gradient(
+      135deg,
+      rgba(255,255,255,0.12) 0%,
+      rgba(255,255,255,0.05) 100%
+    );
+    border: 1px solid var(--ui-border-color);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 1px 6px rgba(0,0,0,0.10);
+  }
+
+  /* ============================================
+    3. SOFT NEUMORPH — Premium 2026 Upgrade
+    Inspired by: Apple Vision Pro, Spatial UI
+    ============================================ */
+  [data-ui-style="neumorph"] {
+    --ui-radius-sm: 16px;
+    --ui-radius-md: 20px;
+    --ui-radius-lg: 28px;
+    --ui-border-width: 0px;
+
+    /* Dual-shadow emboss with ambient occlusion */
+    --ui-shadow-card:
+      8px 8px 20px rgba(0,0,0,0.35),
+      -8px -8px 20px rgba(255,255,255,0.05),
+      inset 0 0 0 1px rgba(255,255,255,0.02);
+
+    --ui-shadow-hover:
+      12px 12px 28px rgba(0,0,0,0.40),
+      -12px -12px 28px rgba(255,255,255,0.06),
+      inset 0 0 0 1px rgba(255,255,255,0.03);
+
+    --ui-shadow-btn:
+      4px 4px 10px rgba(0,0,0,0.30),
+      -4px -4px 10px rgba(255,255,255,0.04),
+      inset 0 0 0 1px rgba(255,255,255,0.02);
+
+    --ui-shadow-btn-hover:
+      6px 6px 14px rgba(0,0,0,0.35),
+      -6px -6px 14px rgba(255,255,255,0.05),
+      inset 0 0 0 1px rgba(255,255,255,0.03);
+
+    --ui-shadow-btn-active:
+      inset 4px 4px 8px rgba(0,0,0,0.30),
+      inset -4px -4px 8px rgba(255,255,255,0.04);
+
+    --ui-shadow-btn-concave:
+      inset 6px 6px 12px rgba(0,0,0,0.25),
+      inset -6px -6px 12px rgba(255,255,255,0.04);
+
+    --ui-backdrop-blur: 0px;
+    --ui-space-unit: 5px;
+    --ui-card-padding: 26px;
+
+    --ui-sidebar-width: 270px;
+    --ui-sidebar-item-radius: var(--ui-radius-md);
+    --ui-sidebar-inset: 0px;
+    --ui-sidebar-radius: 0px;
+
+    --ui-btn-radius: var(--ui-radius-lg);
+    --ui-btn-padding-y: 16px;
+    --ui-btn-padding-x: 28px;
+    --ui-btn-weight: 600;
+    --ui-btn-letter-spacing: 0.01em;
+    --ui-btn-font-size: 14px;
+
+    /* Neumorph surface colors */
+    --ui-surface-light: rgba(255,255,255,0.06);
+    --ui-surface-dark: rgba(0,0,0,0.20);
+  }
+
+  /* Neumorph buttons — Soft extruded pills */
+  [data-ui-style="neumorph"] .ui-btn {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--ui-btn-radius);
+    padding: var(--ui-btn-padding-y) var(--ui-btn-padding-x);
+    font-weight: var(--ui-btn-weight);
+    font-size: var(--ui-btn-font-size);
+    letter-spacing: var(--ui-btn-letter-spacing);
+    box-shadow: var(--ui-shadow-btn);
+    border: none;
+    background: linear-gradient(
+      145deg,
+      color-mix(in srgb, var(--bg-card) 98%, white) 0%,
+      var(--bg-card) 100%
+    );
+    color: var(--text-primary);
+    transition: 
+      box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+      transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+      background 0.3s ease;
+    cursor: pointer;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Soft inner highlight */
+  [data-ui-style="neumorph"] .ui-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 15%;
+    right: 15%;
+    height: 35%;
+    background: linear-gradient(
+      180deg,
+      rgba(255,255,255,0.08) 0%,
+      transparent 100%
+    );
+    border-radius: 50%;
+    filter: blur(6px);
+    pointer-events: none;
+  }
+
+  [data-ui-style="neumorph"] .ui-btn:hover {
+    box-shadow: var(--ui-shadow-btn-hover);
+    transform: translateY(-2px);
+  }
+
+  [data-ui-style="neumorph"] .ui-btn:hover::before {
+    opacity: 1.2;
+  }
+
+  /* Pressed / concave state */
+  [data-ui-style="neumorph"] .ui-btn:active {
+    box-shadow: var(--ui-shadow-btn-active);
+    transform: translateY(0) scale(0.98);
+    transition-duration: 0.1s;
+  }
+
+  /* Primary neumorph button — Soft colored glow */
+  [data-ui-style="neumorph"] .ui-btn-primary {
+    background: linear-gradient(
+      145deg,
+      color-mix(in srgb, var(--accent-primary) 90%, white) 0%,
+      var(--accent-primary) 50%,
+      color-mix(in srgb, var(--accent-primary) 85%, black) 100%
+    );
+    color: var(--text-inverse);
+    box-shadow: 
+      4px 4px 12px color-mix(in srgb, var(--accent-primary) 25%, rgba(0,0,0,0.30)),
+      -4px -4px 12px rgba(255,255,255,0.04),
+      inset 0 0 0 1px rgba(255,255,255,0.10);
+    text-shadow: 0 1px 2px rgba(0,0,0,0.20);
+  }
+
+  [data-ui-style="neumorph"] .ui-btn-primary:hover {
+    box-shadow: 
+      6px 6px 16px color-mix(in srgb, var(--accent-primary) 30%, rgba(0,0,0,0.35)),
+      -6px -6px 16px rgba(255,255,255,0.05),
+      inset 0 0 0 1px rgba(255,255,255,0.12);
+  }
+
+  [data-ui-style="neumorph"] .ui-btn-primary:active {
+    box-shadow: 
+      inset 4px 4px 10px color-mix(in srgb, var(--accent-primary) 40%, rgba(0,0,0,0.30)),
+      inset -4px -4px 10px rgba(255,255,255,0.06);
+  }
+
+  /* Neumorph cards — Soft extruded panels */
+  [data-ui-style="neumorph"] .ui-card {
+    background: linear-gradient(
+      145deg,
+      color-mix(in srgb, var(--bg-card) 97%, white) 0%,
+      var(--bg-card) 50%,
+      color-mix(in srgb, var(--bg-card) 98%, black) 100%
+    );
+    border: none;
+    border-radius: var(--ui-radius-lg);
+    box-shadow: var(--ui-shadow-card);
+    padding: var(--ui-card-padding);
+    transition: 
+      box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+      transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Top highlight for 3D effect */
+  [data-ui-style="neumorph"] .ui-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 10%;
+    right: 10%;
+    height: 30%;
+    background: linear-gradient(
+      180deg,
+      rgba(255,255,255,0.06) 0%,
+      transparent 100%
+    );
+    border-radius: 50%;
+    filter: blur(8px);
+    pointer-events: none;
+  }
+
+  [data-ui-style="neumorph"] .ui-card:hover {
+    box-shadow: var(--ui-shadow-hover);
+    transform: translateY(-3px);
+  }
+
+  /* Neumorph inputs — Inset concave fields */
+  [data-ui-style="neumorph"] .ui-input {
+    background: linear-gradient(
+      145deg,
+      color-mix(in srgb, var(--bg-input) 95%, black) 0%,
+      var(--bg-input) 100%
+    );
+    border: none;
+    border-radius: var(--ui-radius-md);
+    padding: 18px 22px;
+    font-size: 15px;
+    box-shadow: 
+      inset 4px 4px 8px rgba(0,0,0,0.25),
+      inset -4px -4px 8px rgba(255,255,255,0.03);
+    transition: 
+      box-shadow 0.3s ease,
+      background 0.3s ease;
+    color: var(--text-primary);
+  }
+
+  [data-ui-style="neumorph"] .ui-input:focus {
+    box-shadow: 
+      inset 4px 4px 8px rgba(0,0,0,0.30),
+      inset -4px -4px 8px rgba(255,255,255,0.04),
+      0 0 0 2px color-mix(in srgb, var(--accent-primary) 20%, transparent);
+    outline: none;
+    background: linear-gradient(
+      145deg,
+      color-mix(in srgb, var(--bg-input) 93%, black) 0%,
+      var(--bg-input) 100%
+    );
+  }
+
+  /* Neumorph sidebar — Soft edge panel */
+  [data-ui-style="neumorph"] .ui-sidebar {
+    width: var(--ui-sidebar-width);
+    background: linear-gradient(
+      145deg,
+      color-mix(in srgb, var(--bg-navbar) 97%, white) 0%,
+      var(--bg-navbar) 100%
+    );
+    border: none;
+    border-radius: var(--ui-sidebar-radius);
+    padding: 20px 16px;
+    box-shadow: 
+      6px 0 20px rgba(0,0,0,0.20),
+      inset -1px 0 0 rgba(255,255,255,0.03);
+  }
+
+  [data-ui-style="neumorph"] .ui-sidebar-item {
+    border-radius: var(--ui-sidebar-item-radius);
+    padding: 14px 20px;
+    margin: 8px 0;
+    transition: 
+      box-shadow 0.3s ease,
+      transform 0.2s ease,
+      background-color 0.2s ease;
+    box-shadow: 
+      3px 3px 8px rgba(0,0,0,0.20),
+      -3px -3px 8px rgba(255,255,255,0.03);
+  }
+
+  [data-ui-style="neumorph"] .ui-sidebar-item:hover {
+    box-shadow: 
+      4px 4px 10px rgba(0,0,0,0.25),
+      -4px -4px 10px rgba(255,255,255,0.04);
+    transform: translateX(2px);
+  }
+
+  [data-ui-style="neumorph"] .ui-sidebar-item.active {
+    background: linear-gradient(
+      145deg,
+      color-mix(in srgb, var(--accent-primary) 85%, white) 0%,
+      var(--accent-primary) 100%
+    );
+    color: var(--text-inverse);
+    box-shadow: 
+      inset 3px 3px 8px rgba(0,0,0,0.20),
+      inset -3px -3px 8px rgba(255,255,255,0.06);
+    text-shadow: 0 1px 2px rgba(0,0,0,0.20);
+  }
+
+  /* Neumorph badges — Soft pills */
+  [data-ui-style="neumorph"] .ui-badge {
+    border-radius: var(--ui-radius-pill);
+    padding: 8px 16px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    box-shadow: 
+      2px 2px 6px rgba(0,0,0,0.20),
+      -2px -2px 6px rgba(255,255,255,0.03);
+    background: linear-gradient(
+      145deg,
+      color-mix(in srgb, var(--bg-card) 97%, white) 0%,
+      var(--bg-card) 100%
+    );
+  }
+
+  /* ============================================
+    4. FLAT MINIMAL
+    ============================================ */
+  [data-ui-style="flat"] {
+    --ui-radius-sm: 4px;
+    --ui-radius-md: 6px;
+    --ui-radius-lg: 8px;
+    --ui-border-width: 1px;
+    --ui-border-color: var(--border-color);
+
+    --ui-shadow-card: none;
+    --ui-shadow-hover: none;
+    --ui-shadow-btn: none;
+
+    --ui-backdrop-blur: 0px;
+    --ui-space-unit: 4px;
+    --ui-card-padding: 18px;
+
+    --ui-sidebar-width: 220px;
+    --ui-sidebar-item-radius: var(--ui-radius-sm);
+    --ui-sidebar-inset: 0px;
+    --ui-sidebar-radius: 0px;
+
+    --ui-btn-radius: var(--ui-radius-sm);
+    --ui-btn-padding-y: 9px;
+    --ui-btn-padding-x: 18px;
+    --ui-btn-weight: 500;
+  }
+
+  /* ============================================
+    5. CORPORATE SHARP
+    ============================================ */
+  [data-ui-style="corporate"] {
+    --ui-radius-sm: 2px;
+    --ui-radius-md: 4px;
+    --ui-radius-lg: 6px;
+    --ui-border-width: 1px;
+    --ui-border-color: var(--border-color);
+
+    --ui-shadow-card: 0 1px 2px rgba(0,0,0,0.20);
+    --ui-shadow-hover: 0 2px 6px rgba(0,0,0,0.24);
+    --ui-shadow-btn: none;
+
+    --ui-backdrop-blur: 0px;
+    --ui-space-unit: 3px;
+    --ui-card-padding: 16px;
+
+    --ui-sidebar-width: 236px;
+    --ui-sidebar-item-radius: 0px;
+    --ui-sidebar-inset: 0px;
+    --ui-sidebar-radius: 0px;
+
+    --ui-btn-radius: var(--ui-radius-sm);
+    --ui-btn-padding-y: 8px;
+    --ui-btn-padding-x: 16px;
+    --ui-btn-weight: 700;
+  }
+
+  /* ============================================
+    REUSABLE UTILITY CLASSES (Fallback)
+    ============================================ */
+  .ui-card {
+    background-color: var(--bg-card);
+    border: var(--ui-border-width) solid var(--ui-border-color);
+    border-radius: var(--ui-radius-lg);
+    box-shadow: var(--ui-shadow-card);
+    padding: var(--ui-card-padding);
+    backdrop-filter: blur(var(--ui-backdrop-blur));
+    -webkit-backdrop-filter: blur(var(--ui-backdrop-blur));
+    transition: box-shadow 0.25s ease, border-radius 0.25s ease, transform 0.2s ease;
+  }
+  .ui-card:hover {
+    box-shadow: var(--ui-shadow-hover);
+  }
+
+  .ui-btn {
+    border-radius: var(--ui-btn-radius);
+    padding: var(--ui-btn-padding-y) var(--ui-btn-padding-x);
+    font-weight: var(--ui-btn-weight);
+    box-shadow: var(--ui-shadow-btn);
+    border: var(--ui-border-width) solid var(--ui-border-color);
+    transition: box-shadow 0.2s ease, border-radius 0.25s ease, transform 0.15s ease;
+  }
+  .ui-btn:active {
+    transform: scale(0.98);
+  }
+
+  .ui-btn-primary {
+    background-color: var(--accent-primary);
+    color: var(--text-inverse);
+    border: none;
+  }
+
+  .ui-input {
+    background-color: var(--bg-input);
+    border: var(--ui-border-width) solid var(--ui-border-color);
+    border-radius: var(--ui-radius-sm);
+    padding: calc(var(--ui-space-unit) * 2.5) calc(var(--ui-space-unit) * 3);
+  }
+
+  .ui-sidebar {
+    width: var(--ui-sidebar-width);
+    margin: var(--ui-sidebar-inset);
+    background-color: var(--bg-navbar);
+    border-right: var(--ui-border-width) solid var(--ui-border-color);
+    border-radius: var(--ui-sidebar-radius);
+    backdrop-filter: blur(var(--ui-backdrop-blur));
+    -webkit-backdrop-filter: blur(var(--ui-backdrop-blur));
+    transition: width 0.25s ease, border-radius 0.25s ease;
+  }
+
+  .ui-sidebar-item {
+    border-radius: var(--ui-sidebar-item-radius);
+    padding: calc(var(--ui-space-unit) * 2.5) calc(var(--ui-space-unit) * 4);
+    transition: border-radius 0.25s ease, background-color 0.2s ease;
+  }
+
+  [data-ui-style="corporate"] .ui-sidebar-item.active {
+    border-left: 3px solid var(--accent-primary);
+    border-radius: 0;
+  }
+
+  .ui-badge {
+    border-radius: var(--ui-radius-pill);
+    padding: calc(var(--ui-space-unit) * 1) calc(var(--ui-space-unit) * 2.5);
+    font-size: 11px;
+    font-weight: var(--ui-btn-weight);
+  }
+
+  /* ============================================
+    GLOBAL AUTO-OVERRIDE
+    ============================================ */
+  [data-ui-style] .rounded-lg {
+    border-radius: var(--ui-radius-sm) !important;
+  }
+  [data-ui-style] .rounded-xl {
+    border-radius: var(--ui-radius-md) !important;
+  }
+  [data-ui-style] .rounded-2xl,
+  [data-ui-style] .rounded-3xl {
+    border-radius: var(--ui-radius-lg) !important;
+  }
+
+  [data-ui-style] .shadow-lg {
+    box-shadow: var(--ui-shadow-card) !important;
+  }
+  [data-ui-style] .shadow-xl,
+  [data-ui-style] .shadow-2xl {
+    box-shadow: var(--ui-shadow-hover) !important;
+  }
+
+  [data-ui-style] .border {
+    border-width: var(--ui-border-width) !important;
+  }
+
+  [data-ui-style="glass"] [class*="bg-[var(--bg-card)]"],
+  [data-ui-style="glass"] [class*="bg-[var(--bg-secondary)]"] {
+    backdrop-filter: blur(var(--ui-backdrop-blur));
+    -webkit-backdrop-filter: blur(var(--ui-backdrop-blur));
+  }
+
+  [data-ui-style="neumorph"] [class*="/10"] {
+    border-radius: var(--ui-radius-sm) !important;
+  }
+
+  [data-ui-style="corporate"] table thead {
+    border-bottom-width: 2px;
+  }
+
+  [data-ui-style="glass"] .ui-sidebar {
+    border: var(--ui-border-width) solid var(--ui-border-color);
+    border-radius: var(--ui-sidebar-radius);
+  }
